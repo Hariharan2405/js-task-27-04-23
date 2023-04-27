@@ -67,15 +67,15 @@
 		border-bottom-right-radius:50%;
 		border-bottom-left-radius:50%;
 		}
-		.saved-img{width:100%;
+		.saved-img{width:0%;
 		position:relative;
 		top:110%;
 		animation-name:anime;
 		animation-duration:1s;
 		}
 		@keyframes anime {
-			0%{top:0;}
-			100%{bottom:220px;}
+			0%{top:0;width:100%;}
+			100%{bottom:220px;width:100%;}
 			}
 		#s-btn{position:relative;
 		z-index:1;
