@@ -1,0 +1,128 @@
+<!DocType html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="">
+		<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+		<meta name="author" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>JS TASK</title>
+		<link href="" rel="">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+		<style>
+		#heart{border:2px solid #000; padding:12px;display:flex;width:100px;align-items:center;}
+		i{padding-right:10px;}
+		#red{color:red;}
+		.hide{display:none;}
+		
+		#share,#detail,#save{width:200px;height:300px;}
+		#share{position:relative;overflow:hidden; border:2px solid #000;}
+		#detail{position:absolute;top:100%;background-color:#eee;}
+		#icon i{margin:20px;font-size:30px;}
+		#detail ul{position:relative;padding:10px;}
+		#detail p{position:absolute;top:0px;right:5px;}
+		
+		#save{border:2px solid #000;position:relative;}
+		#view-img{width:100%;}
+		#save-img i{padding-left:80%;font-size:20px;}
+		#profile-img{width:40px; height:40px;position:absolute;bottom:10px;right:10px;border-radius:50%;}
+		#saved{width:60px;height:80px;position:absolute;bottom:50px;right:0px;overflow:hidden;border-bottom-right-radius:50%;border-bottom-left-radius:50%;}
+		.saved-img{width:100%;position:relative;top:110%;animation-name:anime;animation-duration:1s;}
+		@keyframes anime {0%{top:0;}100%{bottom:220px;}}
+		#s-btn{position:relative;z-index:1;}
+		#black{position:absolute;top:o;left:0;z-index:-5;opacity:0;}
+		.move{animation-name:move;animation-duration:2s;}
+		@keyframes move {0%{opacity:1;}100%{opacity:0;}}
+		</style>
+	
+	
+	</head>
+	
+	<body>
+		<section>
+			<div id="heart">
+				<i id="hallow" class="bi bi-heart"></i><i id="red" class="bi bi-heart-fill hide"></i>
+				<p><span id="count">0</span> Likes</p>
+			</div><br><br>
+			
+			<div id="share">
+				<div id="icon">
+					<i id="tel" class="bi bi-telegram"></i>
+				</div>
+				
+				<div id="detail">
+					<ul>
+						<li>One</li>
+						<li>Two</li>
+						<li>Three</li>
+						<li>Four</li>
+						<li>Five</li>
+					</ul>
+					<p id="close">X</p>
+				</div>
+			</div><br><br>
+			
+			<div id="save">
+				<div id="save-img">
+					<img id="view-img" src="https://assetsio.reedpopcdn.com/Dragon-Ball-Super-Goku.jpg?width=1200&height=600&fit=crop&enable=upscale&auto=webp">
+					<i id="s-btn" class="bi bi-bookmark"></i><i id="black" class="bi bi-bookmark-fill"></i>
+				</div>
+				
+				<img id="profile-img" src="https://www.smartprix.com/bytes/wp-content/uploads/2022/11/Naruto.jpg">
+				
+				<div id="saved"></div>
+			</div>
+		</section>
+		
+		<script>
+			var hallow=document.getElementById("hallow");
+			var red=document.getElementById("red");
+			var count=document.getElementById("count");
+			
+			hallow.addEventListener("click",function(){
+				red.classList.toggle("hide");
+				hallow.classList.toggle("hide");
+				var x=parseInt(count.innerText)+1;
+				count.innerHTML=x;
+			})
+			
+			red.addEventListener("click",function(){
+				red.classList.toggle("hide");
+				hallow.classList.toggle("hide");
+				var x=parseInt(count.innerHTML)-1;
+				count.innerText=x;
+			})
+			
+			
+			var tel=document.getElementById("tel");
+			var detail=document.getElementById("detail");
+			var close=document.getElementById("close");
+			
+			tel.addEventListener("click",function(){
+				detail.style.top="0%"
+				detail.style.transition="all 1s"
+			})
+			close.addEventListener("click",function(){
+				detail.style.top="100%"
+				detail.style.transition="all 1s"
+			})
+			
+			var vimg=document.getElementById("view-img");
+			var sbtn=document.getElementById("s-btn");
+			var black=document.getElementById("black");
+			var profile=document.getElementById("profile-img");
+			var saved=document.getElementById("saved");
+			
+			sbtn.addEventListener("click",function(){
+				var simg=document.createElement("img");
+				simg.src=vimg.src;
+				simg.classList.add("saved-img")
+				black.classList.add("move")
+				saved.appendChild(simg);
+				
+				
+			})
+			
+		</script>
+	</body>
+</html>
